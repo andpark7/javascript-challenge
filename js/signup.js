@@ -5,44 +5,43 @@ application script for javascript challenge
 "use strict";
 
 document.addEventListener("DOMContentLoaded", function() {
-	var option;
-	var idx;
-	var stateForm = document.getElementById('signup').elements['state'];
-	var jobOption = document.getElementById('occupation');
-	var other = document.getElementById('signup').elements['occupationOther'];
-	var noThanks = document.getElementById('cancelButton');
-	var signupForm = document.getElementById('signup');
+    var option;
+    var idx;
+    var stateForm = document.getElementById('signup').elements['state'];
+    var jobOption = document.getElementById('occupation');
+    var other = document.getElementById('signup').elements['occupationOther'];
+    var noThanks = document.getElementById('cancelButton');
+    var signupForm = document.getElementById('signup');
 
     //creates the states list
-	for (idx = 0; idx < usStates.length; idx++) {
-		option = document.createElement('option');
-		option.innerHTML = usStates[idx].name;
-		option.value = usStates[idx].code;
-		stateForm.appendChild(option);
-	}
+    for (idx = 0; idx < usStates.length; idx++) {
+        option = document.createElement('option');
+        option.innerHTML = usStates[idx].name;
+        option.value = usStates[idx].code;
+        stateForm.appendChild(option);
+    }
 
     //if the user chooses other as a job option,
     //what that other job is, will be asked
-	jobOption.addEventListener('change', function() {
-		if (jobOption.value === 'other') {
-			other.style.display ='block';
-		} else {
-			other.style.display = 'none';
-		}
-	});
-
+    jobOption.addEventListener('change', function() {
+        if (jobOption.value === 'other') {
+            other.style.display ='block';
+        } else {
+            other.style.display = 'none';
+        }
+    });
+ 
     //if the user does not want to stay on the page
     //they can opt out and go to google.com
-	noThanks.addEventListener('click', function() {
-		if(window.confirm('Are you sure you want to leave?')) {
-			window.location = 'http://www.google.com';
-		}
-	});
+    noThanks.addEventListener('click', function() {
+        if (window.confirm('Are you sure you want to leave?')) {
+            window.location = 'http://www.google.com';
+        }
+    });
 
     //when the user tries to submit the form
     //will submit if all required fields are filled out
-    signupForm.addEventListener('submit', onSubmit);
-	
+    signupForm.addEventListener('submit', onSubmit);	
 });
 
 /*
