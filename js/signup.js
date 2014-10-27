@@ -57,6 +57,8 @@ function onSubmit(eventClick) {
     var dob = this.elements['birthdate'].value;
     var zipCode = this.elements['zip'].value;
 
+    eventClick.returnValue = validateForm(this);
+
     //calculates if user is more than 13, if not form
     //will not submit
     try {
@@ -73,11 +75,10 @@ function onSubmit(eventClick) {
         this.elements['zip'].className = 'form-control invalid-field';
         eventClick.returnValue = false;
     }
+
     if (!eventClick.returnValue && eventClick.preventDefault) {
         eventClick.preventDefault();
     }
-    eventClick.returnValue = validateForm(this);
-
     return eventClick.returnValue;
 }
 
